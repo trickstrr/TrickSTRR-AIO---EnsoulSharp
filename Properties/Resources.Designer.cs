@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ricardo.AIO.Properties {
+namespace TrickSTRR.AIO.Properties {
     using System;
     
     

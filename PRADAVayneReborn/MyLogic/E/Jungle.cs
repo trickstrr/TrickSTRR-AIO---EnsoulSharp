@@ -26,8 +26,8 @@ namespace PRADA_Vayne.MyLogic.E
                     if (_jungleMobs.Contains(minion.CharacterName))
                         for (var i = 40; i < 425; i += 141)
                         {
-                            var flags = NavMesh.GetCollisionFlags(minion.Position.To2D()
-                                .Extend(Heroes.Player.Position.To2D(), -i).To3D());
+                            var flags = NavMesh.GetCollisionFlags(minion.Position.ToVector2()
+                                .Extend(Heroes.Player.Position.ToVector2(), -i).ToVector3());
                             if (flags.HasFlag(CollisionFlags.Wall) || flags.HasFlag(CollisionFlags.Building))
                             {
                                 Program.E.Cast(minion);

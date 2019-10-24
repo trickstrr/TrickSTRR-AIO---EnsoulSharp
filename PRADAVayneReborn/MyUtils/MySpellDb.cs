@@ -1678,7 +1678,7 @@ namespace PRADA_Vayne.Utils
         public int EndTick =>
             (int)(StartTick + Spell.Delay + 1000 * (StartPosition.Distance(EndPosition) / Spell.Speed));
 
-        public Vector2 EndPosition => Target.Position.To2D();
+        public Vector2 EndPosition => Target.Position.ToVector2();
 
         public Vector2 Direction => (EndPosition - StartPosition).Normalized();
 

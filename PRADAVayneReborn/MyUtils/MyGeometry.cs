@@ -23,16 +23,21 @@
 *
 */
 
-using ClipperLib;
+
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.Clipper;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.MenuUI.Values;
+using EnsoulSharp.SDK.Utility;
+using EnsoulSharp.SDK.Utils;
 using SharpDX;
 using System;
 using System.Collections.Generic;
 using Color = System.Drawing.Color;
 using GamePath = System.Collections.Generic.List<SharpDX.Vector2>;
-using Path = System.Collections.Generic.List<ClipperLib.IntPoint>;
-using Paths = System.Collections.Generic.List<System.Collections.Generic.List<ClipperLib.IntPoint>>;
+using Path = System.Collections.Generic.List<EnsoulSharp.SDK.Clipper.IntPoint>;
+using Paths = System.Collections.Generic.List<System.Collections.Generic.List<EnsoulSharp.SDK.Clipper.IntPoint>>;
 
 namespace PRADA_Vayne.MyUtils
 {
@@ -168,7 +173,7 @@ namespace PRADA_Vayne.MyUtils
                 for (var i = 0; i <= Points.Count - 1; i++)
                 {
                     var nextIndex = Points.Count - 1 == i ? 0 : i + 1;
-                    Util.DrawLineInWorld(Points[i].To3D(), Points[nextIndex].To3D(), width, color);
+                    Util.DrawLineInWorld(Points[i].ToVector3(), Points[nextIndex].ToVector3(), width, color);
                 }
             }
         }

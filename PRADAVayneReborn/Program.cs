@@ -11,7 +11,12 @@ namespace PRADA_Vayne
     {
         public static void VayneMain()
         {
-            GameEvent.OnGameLoad += arg => PRADALoader.Init();
+            GameEvent.OnGameLoad += GameEvent_OnGameLoad; PRADALoader.Init();
+        }
+
+        private static void GameEvent_OnGameLoad()
+        {
+            throw new System.NotImplementedException();
         }
 
         #region Fields and Objects

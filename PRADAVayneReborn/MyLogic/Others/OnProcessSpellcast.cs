@@ -1,5 +1,11 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.Utility;
+using EnsoulSharp.SDK.Utils;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.Prediction;
+using EnsoulSharp.SDK.Clipper;
+using EnsoulSharp.SDK.Core;
 using PRADA_Vayne.MyLogic.Q;
 using PRADA_Vayne.MyUtils;
 using PRADA_Vayne.Utils;
@@ -14,7 +20,7 @@ namespace PRADA_Vayne.MyLogic.Others
 
             #region ward brush after condemn
 
-            if (sender.IsMe && args.SData.Name.ToLower().Contains("condemn") && args.Target.IsValid<AIHeroClient>())
+            /*if (sender.IsMe && args.SData.Name.ToLower().Contains("condemn") && args.Target.IsValid<AIHeroClient>())
             {
                 var target = (AIHeroClient)args.Target;
                 if (Program.ComboMenu.Item("EQ").GetValue<bool>() && target.IsVisible &&
@@ -26,7 +32,7 @@ namespace PRADA_Vayne.MyLogic.Others
 
                 if (NavMesh.IsWallOfGrass(args.End, 100))
                 {
-                    var blueTrinket = ItemId.Farsight_Alteration;
+                   var blueTrinket = ItemId.Farsight_Alteration;
                     if (Items.HasItem((int)ItemId.Farsight_Alteration, Heroes.Player) &&
                         Items.CanUseItem((int)ItemId.Farsight_Alteration))
                         blueTrinket = ItemId.Farsight_Alteration;
@@ -40,29 +46,30 @@ namespace PRADA_Vayne.MyLogic.Others
                     if (Items.CanUseItem((int)yellowTrinket))
                         Items.UseItem((int)yellowTrinket, args.End.Randomize(0, 100));
                 }
-            }
+            }*/
 
             #endregion ward brush after condemn
 
-            #region Anti-Stealth
+            //need to fix  #region Anti-Stealth
 
             if (args.SData.Name.ToLower().Contains("talonshadow")) //#TODO get the actual buff name
             {
-                if (Items.HasItem((int)ItemId.Oracle_Alteration) &&
+               /* if (Items.HasItem((int)ItemId.Oracle_Alteration) &&
                     Items.CanUseItem((int)ItemId.Oracle_Alteration))
                     Items.UseItem((int)ItemId.Oracle_Alteration, Heroes.Player.Position);
                 else if (Items.HasItem((int)ItemId.Control_Ward, Heroes.Player))
-                    Items.UseItem((int)ItemId.Control_Ward, Heroes.Player.Position.Randomize(0, 125));
+                    Items.UseItem((int)ItemId.Control_Ward, Heroes.Player.Position.Randomize(0, 125));*/
             }
 
-            #endregion Anti-Stealth
+
+            #endregion Anti-Stealth  
 
             if (MyWizard.ShouldSaveCondemn()) return;
             if (sender.Distance(Heroes.Player) > 1500 || !args.Target.IsMe || args.SData == null)
                 return;
             //how to milk alistar/thresh/everytoplaner
             var spellData = SpellDb.GetByName(args.SData.Name);
-            if (spellData != null && !Heroes.Player.UnderTurret(true) &&
+            if (spellData != null && !Heroes.Player.IsUnderEnemyTurret(true) &&
                 !Lists.UselessChamps.Contains(sender.CharacterName))
                 if (spellData.CcType == CcType.Knockup || spellData.CcType == CcType.Stun ||
                     spellData.CcType == CcType.Knockback || spellData.CcType == CcType.Suppression)

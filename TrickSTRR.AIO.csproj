@@ -37,24 +37,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnsoulSharp.SDK">
-      <HintPath>..\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
     </Reference>
     <Reference Include="EnsoulSharp.Wrapper">
-      <HintPath>..\EnsoulSharp.Dependencies-master\EnsoulSharp.Dependencies-master\Core\9.20\EnsoulSharp.Wrapper.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\EnsoulSharp.Wrapper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\EnsoulSharp\System\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SebbyLib">
+      <HintPath>..\EnsoulSharp\System\SebbyLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\EnsoulSharp\System\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9">
-      <HintPath>..\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="SPrediction">
-      <HintPath>..\EnsoulSharp\System\SPrediction.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\SPrediction.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Init.cs" />

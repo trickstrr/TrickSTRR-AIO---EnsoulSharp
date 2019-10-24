@@ -1,5 +1,9 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.MenuUI.Values;
+using EnsoulSharp.SDK.Utils;
+using EnsoulSharp.SDK.Utility;
 using SharpDX;
 using System;
 using System.Collections.Generic;
@@ -20,8 +24,8 @@ namespace PRADA_Vayne.MyUtils
             //values for pred calc pP = player position; p = enemy position; pD = push distance
             var pP = Heroes.Player.Position;
             var p = hero.Position;
-            var pD = Program.ComboMenu.Item("EPushDist").GetValue<Slider>().Value;
-            var mode = Program.ComboMenu.Item("EMode").GetValue<StringList>().SelectedValue;
+            var pD = Program.ComboMenu("EPushDist").GetValue<Slider>().Value;
+            var mode = Program.ComboMenu.Menu("EMode").GetValue<MenuList>().SelectedValue;
 
             if (mode == "PRADASMART" && (p.Extend(pP, -pD).IsCollisionable() ||
                                          p.Extend(pP, -pD / 2f).IsCollisionable() ||
@@ -30,14 +34,14 @@ namespace PRADA_Vayne.MyUtils
                 if (!hero.CanMove || hero.Spellbook.IsAutoAttack)
                     return true;
 
-                var enemiesCount = ObjectManager.Player.CountEnemiesInRange(1200);
+                var enemiesCount = ObjectManager.Player.CountEnemyHeroesInRange(1200);
                 if (enemiesCount > 1 && enemiesCount <= 3)
                 {
                     var prediction = Program.E.GetPrediction(hero);
                     for (var i = 15; i < pD; i += 75)
                     {
                         var posFlags =
-                            NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -i).To3D());
+                            NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -i).ToVector3());
                         if (posFlags.HasFlag(CollisionFlags.Wall) || posFlags.HasFlag(CollisionFlags.Building))
                             return true;
                     }
@@ -54,8 +58,8 @@ namespace PRADA_Vayne.MyUtils
                     (float)(p.X - travelDistance * Math.Sin(Math.PI / 180 * angle)));
 
                 for (var i = 15; i < pD; i += 100)
-                    if (pP.To2D().Extend(alpha, i).To3D().IsCollisionable() &&
-                        pP.To2D().Extend(beta, i).To3D().IsCollisionable())
+                    if (pP.ToVector2().Extend(alpha, i).ToVector3().IsCollisionable() &&
+                        pP.ToVector2().Extend(beta, i).ToVector3().IsCollisionable())
                         return true;
                 return false;
             }
@@ -76,8 +80,8 @@ namespace PRADA_Vayne.MyUtils
                     (float)(p.X - travelDistance * Math.Sin(Math.PI / 180 * angle)));
 
                 for (var i = 15; i < pD; i += 100)
-                    if (pP.To2D().Extend(alpha, i).To3D().IsCollisionable() &&
-                        pP.To2D().Extend(beta, i).To3D().IsCollisionable())
+                    if (pP.ToVector2().Extend(alpha, i).ToVector3().IsCollisionable() &&
+                        pP.ToVector2().Extend(beta, i).ToVector3().IsCollisionable())
                         return true;
                 return false;
             }
@@ -96,8 +100,8 @@ namespace PRADA_Vayne.MyUtils
                     (float)(p.X - travelDistance * Math.Sin(Math.PI / 180 * angle)));
 
                 for (var i = 15; i < pD; i += 100)
-                    if (pP.To2D().Extend(alpha, i).To3D().IsCollisionable() ||
-                        pP.To2D().Extend(beta, i).To3D().IsCollisionable())
+                    if (pP.ToVector2().Extend(alpha, i).ToVector3().IsCollisionable() ||
+                        pP.ToVector2().Extend(beta, i).ToVector3().IsCollisionable())
                         return true;
                 return false;
             }
@@ -105,9 +109,9 @@ namespace PRADA_Vayne.MyUtils
             if (mode == "MARKSMAN")
             {
                 var prediction = Program.E.GetPrediction(hero);
-                return NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -pD).To3D())
+                return NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -pD).ToVector3())
                            .HasFlag(CollisionFlags.Wall) || NavMesh
-                           .GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -pD / 2f).To3D())
+                           .GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -pD / 2f).ToVector3())
                            .HasFlag(CollisionFlags.Wall);
             }
 
@@ -116,7 +120,7 @@ namespace PRADA_Vayne.MyUtils
                 var prediction = Program.E.GetPrediction(hero);
                 for (var i = 15; i < pD; i += 100)
                 {
-                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -i).To3D());
+                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -i).ToVector3());
                     if (posCF.HasFlag(CollisionFlags.Wall) || posCF.HasFlag(CollisionFlags.Building))
                         return true;
                 }
@@ -129,7 +133,7 @@ namespace PRADA_Vayne.MyUtils
                 var prediction = Program.E.GetPrediction(hero);
                 for (var i = 15; i < pD; i += 75)
                 {
-                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -i).To3D());
+                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -i).ToVector3());
                     if (posCF.HasFlag(CollisionFlags.Wall) || posCF.HasFlag(CollisionFlags.Building))
                         return true;
                 }
@@ -142,7 +146,7 @@ namespace PRADA_Vayne.MyUtils
                 var prediction = Program.E.GetPrediction(hero);
                 for (var i = 15; i < pD; i += (int)hero.BoundingRadius) //:frosty:
                 {
-                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -i).To3D());
+                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -i).ToVector3());
                     if (posCF.HasFlag(CollisionFlags.Wall) || posCF.HasFlag(CollisionFlags.Building))
                         return true;
                 }
@@ -155,7 +159,7 @@ namespace PRADA_Vayne.MyUtils
                 var prediction = Program.E.GetPrediction(hero);
                 for (var i = 15; i < pD; i += 75)
                 {
-                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.To2D().Extend(pP.To2D(), -i).To3D());
+                    var posCF = NavMesh.GetCollisionFlags(prediction.UnitPosition.ToVector2().Extend(pP.ToVector2(), -i).ToVector3());
                     if (posCF.HasFlag(CollisionFlags.Wall) || posCF.HasFlag(CollisionFlags.Building))
                         return true;
                 }
@@ -186,9 +190,9 @@ namespace PRADA_Vayne.MyUtils
         {
             if (target == null) return Vector3.Zero;
             //if the target is not a melee and he's alone he's not really a danger to us, proceed to 1v1 him :^ )
-            if (!target.IsMelee && Heroes.Player.CountEnemiesInRange(800) == 1) return Game.CursorPosCenter;
+            if (!target.IsMelee && Heroes.Player.CountEnemyHeroesInRange(800) == 1) return Game.CursorPosCenter;
 
-            var aRC = new Geometry.Circle(Heroes.Player.Position.To2D(), 300).ToPolygon().ToClipperPath();
+            var aRC = new Geometry.Circle(Heroes.Player.Position.ToVector2(), 300).ToPolygon().ToClipperPath();
             var cursorPos = Game.CursorPosCenter;
             var targetPosition = target.Position;
             var pList = new List<Vector3>();
@@ -198,7 +202,7 @@ namespace PRADA_Vayne.MyUtils
 
             foreach (var p in aRC)
             {
-                var v3 = new Vector2(p.X, p.Y).To3D();
+                var v3 = new Vector2(p.X, p.Y).ToVector3();
 
                 if (target.IsFacing(Heroes.Player))
                 {
@@ -211,9 +215,9 @@ namespace PRADA_Vayne.MyUtils
                 }
             }
 
-            if (Heroes.Player.UnderTurret() || Heroes.Player.CountEnemiesInRange(800) == 1)
+            if (Heroes.Player.IsUnderEnemyTurret() || Heroes.Player.CountEnemyHeroesInRange(800) == 1)
                 return pList.Count > 1 ? pList.OrderBy(el => el.Distance(cursorPos)).FirstOrDefault() : Vector3.Zero;
-            if (Program.ComboMenu.Item("QOrderBy").GetValue<StringList>().SelectedValue == "CLOSETOTARGET")
+            if (Program.ComboMenu.Item("QOrderBy").GetValue<MenuList>().SelectedValue == "CLOSETOTARGET")
                 return pList.Count > 1
                     ? pList.OrderBy(el => el.Distance(targetPosition)).FirstOrDefault()
                     : Vector3.Zero;
@@ -235,16 +239,16 @@ namespace PRADA_Vayne.MyUtils
         public static Vector3 Randomize(this Vector3 pos)
         {
             var r = new Random(Environment.TickCount);
-            return new Vector2(pos.X + r.Next(-150, 150), pos.Y + r.Next(-150, 150)).To3D();
+            return new Vector2(pos.X + r.Next(-150, 150), pos.Y + r.Next(-150, 150)).ToVector3();
         }
 
         public static bool IsDangerousPosition(this Vector3 pos)
         {
-            return HeroManager.Enemies.Any(e =>
+            return GameObjects.EnemyHeroes.Any(e =>
                        e.IsValidTarget() && e.IsVisible &&
                        e.Distance(pos) < Program.ComboMenu.Item("QMinDist").GetValue<Slider>().Value) ||
                    Traps.EnemyTraps.Any(t => pos.Distance(t.Position) < 125) ||
-                   pos.UnderTurret(true) && !Player.UnderTurret(true) || pos.IsWall();
+                   pos.UnderTurret(true) && !Player.IsUnderEnemyTurret(true) || pos.IsWall();
         }
 
         public static bool IsKillable(this AIHeroClient hero)
@@ -255,7 +259,7 @@ namespace PRADA_Vayne.MyUtils
         public static bool IsCollisionable(this Vector3 pos)
         {
             return NavMesh.GetCollisionFlags(pos).HasFlag(CollisionFlags.Wall) ||
-                   Program.Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo &&
+                   Program.Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.Combo &&
                    NavMesh.GetCollisionFlags(pos).HasFlag(CollisionFlags.Building);
         }
 

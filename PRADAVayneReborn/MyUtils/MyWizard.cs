@@ -19,14 +19,14 @@ namespace PRADA_Vayne.MyUtils
         public static bool ShouldSaveCondemn()
         {
             var katarina =
-                HeroManager.Enemies.FirstOrDefault(h => h.CharacterName == "Katarina" && h.IsValidTarget(1400));
+                GameObjects.EnemyHeroes.FirstOrDefault(h => h.CharacterName == "Katarina" && h.IsValidTarget(1400));
             if (katarina != null)
             {
                 var kataR = katarina.GetSpell(SpellSlot.R);
                 return kataR.IsReady() || katarina.Spellbook.CanUseSpell(SpellSlot.R) == SpellState.Ready;
             }
 
-            var galio = HeroManager.Enemies.FirstOrDefault(h => h.CharacterName == "Galio" && h.IsValidTarget(1400));
+            var galio = GameObjects.EnemyHeroes.FirstOrDefault(h => h.CharacterName == "Galio" && h.IsValidTarget(1400));
             if (galio != null)
             {
                 var galioR = galio.GetSpell(SpellSlot.R);
