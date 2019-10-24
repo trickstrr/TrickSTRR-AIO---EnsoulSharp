@@ -50,7 +50,9 @@ namespace PRADA_Vayne.MyLogic.Others
 
             #endregion ward brush after condemn
 
-            //need to fix  #region Anti-Stealth
+            // need to fix "ward brush after condemn + Anti-Stealth"
+
+            #region Anti-Stealth
 
             if (args.SData.Name.ToLower().Contains("talonshadow")) //#TODO get the actual buff name
             {
