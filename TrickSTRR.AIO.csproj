@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0B41F700-3E1E-414B-AE3A-FA70DB55FE0D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ricardo.AIO</RootNamespace>
-    <AssemblyName>Ricardo.AIO</AssemblyName>
+    <RootNamespace>TrickSTRR.AIO</RootNamespace>
+    <AssemblyName>TrickSTRR.AIO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
