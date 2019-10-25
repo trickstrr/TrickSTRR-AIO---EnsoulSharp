@@ -15,7 +15,7 @@ namespace TrickSTRR.AIO
         static void Main(string[] args)
         {
             GameEvent.OnGameLoad += GameEvent_OnGameLoad;
-            //Events.OnLoad += Events_OnLoad;
+           //GameEvent.OnLoad += GameEvent_OnLoad;
 
         }
 

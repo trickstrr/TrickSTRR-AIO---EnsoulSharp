@@ -1,5 +1,10 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.MenuUI.Values;
+using EnsoulSharp.SDK.Clipper;
+using EnsoulSharp.SDK.Utility;
+using EnsoulSharp.SDK.Utils;
 using PRADA_Vayne.MyUtils;
 using System;
 

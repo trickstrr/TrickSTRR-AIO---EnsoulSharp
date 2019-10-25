@@ -48,10 +48,10 @@
       <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SebbyLib">
-      <HintPath>..\EnsoulSharp\System\SebbyLib.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\SebbyLib.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
-      <HintPath>..\EnsoulSharp\System\SharpDX.dll</HintPath>
+      <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9">
       <HintPath>C:\Users\Darji\Desktop\scripto\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
@@ -71,8 +71,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Init.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyBlockSpellData.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyBlockSpellDataBase.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyDamageIndicator.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyEvadeManager.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyExtraManager.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyManaManager.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyTargetSelector.cs" />
     <Compile Include="PRADAVayneReborn\MyInitializer\Logic.cs" />
     <Compile Include="PRADAVayneReborn\MyInitializer\Menu.cs" />
+    <Compile Include="PRADAVayneReborn\Common\MyMenuExtensions.cs" />
     <Compile Include="PRADAVayneReborn\MyInitializer\Notifications.cs" />
     <Compile Include="PRADAVayneReborn\MyInitializer\PRADALoader.cs" />
     <Compile Include="PRADAVayneReborn\MyInitializer\Spells.cs" />

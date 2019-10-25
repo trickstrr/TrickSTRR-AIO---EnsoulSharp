@@ -7,9 +7,9 @@ namespace PRADA_Vayne.MyLogic.R
 {
     public static partial class Events
     {
-        public static void BeforeAttack(Orbwalking.BeforeAttackEventArgs args)
+        public static void BeforeAttack(OrbwalkerActionArgs args)
         {
-            if (args.Unit.IsMe || Program.Q.IsReady() || Program.ComboMenu.Item("QCombo").GetValue<bool>())
+            if (args.Type != OrbwalkerType.BeforeAttack || Program.Q.IsReady() || Program.ComboMenu.Item("QCombo").GetValue<bool>())
                 if (ObjectManager.Player.HasBuff("vaynetumblefade") &&
                     Program.EscapeMenu.Item("QUlt").GetValue<bool>() && Heroes.EnemyHeroes.Any(h =>
                         h.IsMelee && h.Distance(Heroes.Player) < h.AttackRange + h.BoundingRadius))

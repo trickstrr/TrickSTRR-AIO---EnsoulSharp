@@ -4,8 +4,10 @@ using EnsoulSharp.SDK.MenuUI;
 using EnsoulSharp.SDK.MenuUI.Values;
 using EnsoulSharp.SDK.Utils;
 using EnsoulSharp.SDK.Utility;
+using SharpDX;
 using PRADA_Vayne.MyLogic.Others;
 using PRADA_Vayne.MyUtils;
+using PRADA_Vayne.MyCommon;
 using System.Drawing;
 using System.Linq;
 using System;
@@ -27,13 +29,14 @@ namespace PRADA_Vayne.MyInitializer
         {
             Program.MainMenu = new Menu("PRADA Vayne", "pradamenu", true);
             Program.ComboMenu = new Menu("Combo Settings", "combomenu");
+            Program.ComboMenu.Add()
             Program.LaneClearMenu = new Menu("Laneclear Settings", "laneclearmenu");
             Program.EscapeMenu = new Menu("Escape Settings", "escapemenu");
             Program.DrawingsMenu = new Menu("Drawing Settings", "drawingsmenu");
             Program.DrawingsMenu.Add(new MenuBool("streamingmode", "Disable All Drawings").SetValue(false));
             Program.DrawingsMenu.Add(new MenuBool("drawenemywaypoints", "Draw Enemy Waypoints").SetValue(true));
-            Program.OrbwalkerMenu = new Menu("Orbwalker", "orbwalkermenu");
-            Program.ComboMenu.Add(new MenuBool("QCombo", "Auto Tumble").SetValue(true));
+           // Program.OrbwalkerMenu = new Menu("Orbwalker", "orbwalkermenu");
+            Program.ComboMenu.Add(new Menu("QCombo", "Auto Tumble").SetValue(true));
             Program.ComboMenu.Add(new MenuBool("QMode", "Q Mode: ").SetValue(new MenuList(new[] { "PRADA", "TO MOUSE" })));
             Program.ComboMenu.Add(new MenuBool("QMinDist", "Min dist from enemies").SetValue(new MenuSlider(375, 325, 525)));
             Program.ComboMenu.Add(new MenuBool("QOrderBy", "Q to position").SetValue(new MenuList(new[] {"CLOSETOMOUSE", "CLOSETOTARGET"})));
@@ -60,7 +63,7 @@ namespace PRADA_Vayne.MyInitializer
             }
 
             Program.LaneClearMenu.Add(new MenuBool("QLastHit", "Use Q to Lasthit").SetValue(true));
-            Program.LaneClearMenu.Add(new MenuSlider("QLastHitMana", "Min Mana% for Q Lasthit").SetValue(new MenuSlider(45)));
+            Program.LaneClearMenu.Add(new MenuSlider("QLastHitMana", "Min Mana% for Q Lasthit").SetValue(new Slider(45)));
             Program.LaneClearMenu.Add(new MenuBool("EJungleMobs", "Use E on Jungle Mobs").SetValue(true));
         }
 

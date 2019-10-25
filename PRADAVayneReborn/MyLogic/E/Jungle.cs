@@ -1,5 +1,11 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.Utility;
+using EnsoulSharp.SDK.Utils;
+using EnsoulSharp.SDK.Clipper;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.MenuUI.Values;
+using EnsoulSharp.SDK.Prediction;
 using PRADA_Vayne.MyUtils;
 using System;
 using System.Linq;
@@ -19,7 +25,7 @@ namespace PRADA_Vayne.MyLogic.E
         {
             if (Program.LaneClearMenu.Item("EJungleMobs").GetValue<bool>() && Program.E.IsReady())
             {
-                var target = Program.Orbwalker.GetTarget();
+                var target = Orbwalker.GetTarget();
                 if (target != null && target is AIMinionClient)
                 {
                     var minion = (AIMinionClient)target;

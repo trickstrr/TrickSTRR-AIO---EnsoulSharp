@@ -24,7 +24,7 @@ namespace PRADA_Vayne.MyUtils
             //values for pred calc pP = player position; p = enemy position; pD = push distance
             var pP = Heroes.Player.Position;
             var p = hero.Position;
-            var pD = Program.ComboMenu("EPushDist").GetValue<Slider>().Value;
+            var pD = Program.ComboMenu.Menu("EPushDist").GetValue<Slider>().Value;
             var mode = Program.ComboMenu.Menu("EMode").GetValue<MenuList>().SelectedValue;
 
             if (mode == "PRADASMART" && (p.Extend(pP, -pD).IsCollisionable() ||
@@ -190,10 +190,10 @@ namespace PRADA_Vayne.MyUtils
         {
             if (target == null) return Vector3.Zero;
             //if the target is not a melee and he's alone he's not really a danger to us, proceed to 1v1 him :^ )
-            if (!target.IsMelee && Heroes.Player.CountEnemyHeroesInRange(800) == 1) return Game.CursorPosCenter;
+            if (!target.IsMelee && Heroes.Player.CountEnemyHeroesInRange(800) == 1) return Game.CursorPos;
 
             var aRC = new Geometry.Circle(Heroes.Player.Position.ToVector2(), 300).ToPolygon().ToClipperPath();
-            var cursorPos = Game.CursorPosCenter;
+            var cursorPos = Game.CursorPos;
             var targetPosition = target.Position;
             var pList = new List<Vector3>();
             var additionalDistance = (0.106 + Game.Ping / 2000f) * target.MoveSpeed;
@@ -248,7 +248,7 @@ namespace PRADA_Vayne.MyUtils
                        e.IsValidTarget() && e.IsVisible &&
                        e.Distance(pos) < Program.ComboMenu.Item("QMinDist").GetValue<Slider>().Value) ||
                    Traps.EnemyTraps.Any(t => pos.Distance(t.Position) < 125) ||
-                   pos.UnderTurret(true) && !Player.IsUnderEnemyTurret(true) || pos.IsWall();
+                   pos.IsUnderEnemyTurret(true) && !Player.IsUnderEnemyTurret(true) || pos.IsWall();
         }
 
         public static bool IsKillable(this AIHeroClient hero)
