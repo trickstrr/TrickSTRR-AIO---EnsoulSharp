@@ -29,13 +29,13 @@ namespace PRADA_Vayne.MyInitializer
         {
             Program.MainMenu = new Menu("PRADA Vayne", "pradamenu", true);
             Program.ComboMenu = new Menu("Combo Settings", "combomenu");
-            Program.ComboMenu.Add()
+            Program.ComboMenu.Add();
             Program.LaneClearMenu = new Menu("Laneclear Settings", "laneclearmenu");
             Program.EscapeMenu = new Menu("Escape Settings", "escapemenu");
             Program.DrawingsMenu = new Menu("Drawing Settings", "drawingsmenu");
             Program.DrawingsMenu.Add(new MenuBool("streamingmode", "Disable All Drawings").SetValue(false));
             Program.DrawingsMenu.Add(new MenuBool("drawenemywaypoints", "Draw Enemy Waypoints").SetValue(true));
-           // Program.OrbwalkerMenu = new Menu("Orbwalker", "orbwalkermenu");
+            Program.OrbwalkerMenu = new Menu("Orbwalker", "orbwalkermenu");
             Program.ComboMenu.Add(new Menu("QCombo", "Auto Tumble").SetValue(true));
             Program.ComboMenu.Add(new MenuBool("QMode", "Q Mode: ").SetValue(new MenuList(new[] { "PRADA", "TO MOUSE" })));
             Program.ComboMenu.Add(new MenuBool("QMinDist", "Min dist from enemies").SetValue(new MenuSlider(375, 325, 525)));
@@ -69,7 +69,8 @@ namespace PRADA_Vayne.MyInitializer
 
         public static void InitOrbwalker()
         {
-            Program.Orbwalker = new Orbwalker.Orbwalk(Program.OrbwalkerMenu);
+            Orbwalker.OnAction += Orbwalker_OnAction;
+
         }
 
         public static void FinishMenuInit()

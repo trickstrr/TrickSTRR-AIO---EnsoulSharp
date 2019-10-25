@@ -40,10 +40,11 @@ namespace TrickSTRR.AIO
                 case "Vayne":
                     PRADA_Vayne.Program.VayneMain();
                     break;
-                /*case "...":
-                    Darius.main.Game_OnGameLoad();
+                case "Kalista":
+                    TrickSTRR.AIO.Kalista.Program.Main();
+                    Game.Print("Based on Official Kalista");
                     break;
-                case "LeeSin":
+               /* case "LeeSin":
                     switch (Misc.menu["DualPAIOPort"][ObjectManager.Player.CharacterName].GetValue<MenuList>().Index)
                     {
                     case 0:

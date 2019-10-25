@@ -12,9 +12,9 @@ namespace PRADA_Vayne.MyInitializer
         {
             #region Q
 
-            OrbwalkerType.AfterAttack += Events.AfterAttack;
-            OrbwalkerType.BeforeAttack += Events.BeforeAttack;
-            OrbwalkerType.OnAttack += Events.OnAttack;
+            Orbwalker.OrbwalkerType.AfterAttack += Events.AfterAttack;
+            Orbwalker.OrbwalkerType.BeforeAttack += Events.BeforeAttack;
+            Orbwalker.OrbwalkerType.OnAttack += Events.OnAttack;
             Spellbook.OnCastSpell += Events.OnCastSpell;
             Gapcloser.OnGapcloser += Events.OnGapcloser;
             AIBaseClient.OnProcessSpellCast += Events.OnProcessSpellCast;

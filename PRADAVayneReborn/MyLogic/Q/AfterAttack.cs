@@ -16,13 +16,13 @@ namespace PRADA_Vayne.MyLogic.Q
         {
             if (!Program.Q.IsReady()) return;
             if (sender.IsMe && target.IsValid<AIHeroClient>() &&
-                (Program.Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.Combo ||
+                (Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.Combo ||
                  !Program.ComboMenu.Item("OnlyQinCombo").GetValue<bool>()))
             {
                 var tg = target as AIHeroClient;
                 if (tg == null) return;
                 var mode = Program.ComboMenu.Item("QMode").GetValue<MenuList>().SelectedValue;
-                var tumblePosition = Game.CursorPosCenter;
+                var tumblePosition = Game.CursorPos;
                 switch (mode)
                 {
                     case "PRADA":
@@ -30,7 +30,7 @@ namespace PRADA_Vayne.MyLogic.Q
                         break;
 
                     default:
-                        tumblePosition = Game.CursorPosCenter;
+                        tumblePosition = Game.CursorPos;
                         break;
                 }
 
@@ -41,10 +41,10 @@ namespace PRADA_Vayne.MyLogic.Q
             if (m != null && Program.LaneClearMenu.Item("QLastHit").GetValue<bool>() &&
                 ObjectManager.Player.ManaPercent >=
                 Program.LaneClearMenu.Item("QLastHitMana").GetValue<Slider>().Value &&
-                Program.Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.LastHit ||
-                Program.Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.LaneClear)
+                Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.LastHit ||
+                Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.LaneClear)
             {
-                var dashPosition = Game.CursorPosCenter;
+                var dashPosition = Game.CursorPos;
                 var mode = Program.ComboMenu.Item("QMode").GetValue<MenuList>().SelectedValue;
                 switch (mode)
                 {
@@ -53,7 +53,7 @@ namespace PRADA_Vayne.MyLogic.Q
                         break;
 
                     default:
-                        dashPosition = Game.CursorPosCenter;
+                        dashPosition = Game.CursorPos;
                         break;
                 }
 

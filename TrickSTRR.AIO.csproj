@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Init.cs" />
+    <Compile Include="Kalista\Kalista.cs" />
+    <Compile Include="Kalista\MenuWrapper.cs" />
+    <Compile Include="Kalista\Program.cs" />
     <Compile Include="PRADAVayneReborn\Common\MyBlockSpellData.cs" />
     <Compile Include="PRADAVayneReborn\Common\MyBlockSpellDataBase.cs" />
     <Compile Include="PRADAVayneReborn\Common\MyDamageIndicator.cs" />
