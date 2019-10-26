@@ -16,7 +16,7 @@ namespace PRADA_Vayne.MyLogic.Q
         {
             if (!Program.Q.IsReady()) return;
             if (sender.IsMe && target.IsValid<AIHeroClient>() &&
-                (Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.Combo ||
+                (Program.Orbwalking.ActiveMode == Orbwalker.OrbwalkerMode.Combo ||
                  !Program.ComboMenu.Item("OnlyQinCombo").GetValue<bool>()))
             {
                 var tg = target as AIHeroClient;

@@ -20,7 +20,7 @@ namespace PRADA_Vayne.MyLogic.Q
                     var target = (AIHeroClient)args.Target;
                     if (Program.ComboMenu.Item("RCombo").GetValue<bool>() && Program.R.IsReady() &&
                         Program.Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
-                        if (!target.UnderTurret(true))
+                        if (!target.IsUnderEnemysTurret(true))
                             Program.R.Cast();
                     if (target.IsMelee && target.IsFacing(Heroes.Player))
                         if (target.Distance(Heroes.Player.Position) < 325)

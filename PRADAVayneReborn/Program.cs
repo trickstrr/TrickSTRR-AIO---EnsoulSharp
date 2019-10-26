@@ -20,7 +20,10 @@ namespace PRADA_Vayne
         }
 
         #region Fields and Objects
-        //public static Orbwalker.OrbwalkerMode Orbwalker;
+        public static void Orbwalking()
+        {
+            Orbwalker.OnAction += OrbwalkerActionArgs;
+        }
         #region Menu
 
         public static Menu MainMenu;
