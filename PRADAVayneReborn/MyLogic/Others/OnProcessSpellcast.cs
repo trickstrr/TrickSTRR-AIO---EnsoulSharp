@@ -71,11 +71,11 @@ namespace PRADA_Vayne.MyLogic.Others
                 return;
             //how to milk alistar/thresh/everytoplaner
             var spellData = SpellDb.GetByName(args.SData.Name);
-            if (spellData != null && !Heroes.Player.IsUnderEnemyTurret(true) &&
-                !Lists.UselessChamps.Contains(sender.CharacterName))
+            /* if (spellData != null && !Heroes.Player.IsUnderEnemyTurret(true) &&
+            !Lists.UselessChamps.Contains(sender.CharacterName))
                 if (spellData.CcType == CcType.Knockup || spellData.CcType == CcType.Stun ||
                     spellData.CcType == CcType.Knockback || spellData.CcType == CcType.Suppression)
-                    Program.E.Cast(sender);
+                    Program.E.Cast(sender);*/
         }
     }
 }

@@ -17,7 +17,7 @@ namespace PRADA_Vayne.MyLogic.E
         {
             if (Program.E.IsReady())
             {
-                if (Program.ComboMenu.MenuValueType("ManualE").GetValue<KeyBind>().Active)
+              //  if (Program.ComboMenu.MenuValueType("ManualE").GetValue<KeyBindType>().Active)
                     foreach (var hero in Heroes.EnemyHeroes.Where(h => h.Distance(Heroes.Player) < 550))
                         if (hero != null)
                             for (var i = 40; i < 425; i += 125)
@@ -32,7 +32,7 @@ namespace PRADA_Vayne.MyLogic.E
                                 }
                             }
 
-                if (Program.ComboMenu.Menu("ECombo").GetValue<bool>())
+               // if (Program.ComboMenu.Menu("ECombo").GetValue<bool>())
                     foreach (var enemy in Heroes.EnemyHeroes.Where(e => e.IsValidTarget(550)))
                         if (enemy != null && enemy.IsCondemnable())
                             Program.E.Cast(enemy);

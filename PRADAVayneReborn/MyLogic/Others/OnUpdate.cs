@@ -18,12 +18,12 @@ namespace PRADA_Vayne.MyLogic.Others
             
             if (Heroes.Player.HasBuff("rengarralertsound"))
             {
-                if (Items.HasItem((int)ItemId.Oracle_Alteration, Heroes.Player) &&
+               /* if (Items.HasItem((int)ItemId.Oracle_Alteration, Heroes.Player) &&
                     Items.CanUseItem((int)ItemId.Oracle_Alteration))
                     Items.UseItem((int)ItemId.Oracle_Alteration, Heroes.Player.Position);
                 else if (Items.HasItem((int)ItemId.Control_Ward, Heroes.Player))
                     Items.UseItem((int)ItemId.Control_Ward, Heroes.Player.Position.Randomize(0, 125));
-            }
+                    */}
         }
     }
 }

@@ -17,7 +17,7 @@ namespace PRADA_Vayne.MyLogic.Q
 
         public static void Cast(Vector3 position)
         {
-            if (!ComboMenu.Item("QCombo").GetValue<bool>()) return;
+           // if (!ComboMenu.Item("QCombo").GetValue<bool>()) return;
             TumbleOrderPos = position;
             if (position != Vector3.Zero) Program.Q.Cast(TumbleOrderPos);
             if (position == Vector3.Zero &&

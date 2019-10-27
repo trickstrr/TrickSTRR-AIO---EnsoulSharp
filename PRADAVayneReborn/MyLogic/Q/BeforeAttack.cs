@@ -14,7 +14,7 @@ namespace PRADA_Vayne.MyLogic.Q
     {
         public static void BeforeAttack(OrbwalkerActionArgs args)
         {
-            if (args.Sender && Program.Q.IsReady() && Program.ComboMenu.Item("QCombo").GetValue<bool>())
+            /*if (args.Sender && Program.Q.IsReady() && Program.ComboMenu.Item("QCombo").GetValue<bool>())
                 if (args.Target.IsValid<AIHeroClient>())
                 {
                     var target = (AIHeroClient)args.Target;
@@ -37,7 +37,7 @@ namespace PRADA_Vayne.MyLogic.Q
                         args.Process = false;
                         Program.Q.Cast(ObjectManager.Player.Position.Extend(closestJ4Wall.Position, 300));
                     }
-                }
+                }*/
         }
     }
 }

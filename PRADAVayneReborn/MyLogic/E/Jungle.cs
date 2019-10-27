@@ -23,7 +23,7 @@ namespace PRADA_Vayne.MyLogic.E
 
         public static void JungleUsage(EventArgs args)
         {
-            if (Program.LaneClearMenu.Item("EJungleMobs").GetValue<bool>() && Program.E.IsReady())
+            //if (Program.LaneClearMenu.Item("EJungleMobs").GetValue<bool>() && Program.E.IsReady())
             {
                 var target = Orbwalker.GetTarget();
                 if (target != null && target is AIMinionClient)

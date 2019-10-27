@@ -21,7 +21,7 @@ namespace PRADA_Vayne.MyLogic.E
             var spellName = args.SData.Name;
             var spellNameToLower = spellName.ToLower();
 
-            if (args.Target != null && args.Target.IsMe || ObjectManager.Player.Distance(args.End, true) < 350 * 350)
+          //  if (args.Target != null && args.Target.IsMe || GameObject.Player.Distance(args.End, true) < 350 * 350)
             {
                 if (spellName == "RenektonDice") Program.E.Cast(sender);
                 if ((casterName == "Leona" || casterName == "Graves") &&
@@ -72,8 +72,8 @@ namespace PRADA_Vayne.MyLogic.E
                 if (casterName == "MasterYi" && slot == SpellSlot.W)
                     for (var i = 40; i < 425; i += 125)
                     {
-                        var flags = NavMesh.GetCollisionFlags(sender.Position.To2D()
-                            .Extend(Heroes.Player.Position.To2D(), -i).To3D());
+                        var flags = NavMesh.GetCollisionFlags(sender.Position.ToVector2()
+                            .Extend(Heroes.Player.Position.ToVector2(), -i).ToVector3());
                         if (flags != null && flags.HasFlag(CollisionFlags.Wall) ||
                             flags.HasFlag(CollisionFlags.Building))
                         {

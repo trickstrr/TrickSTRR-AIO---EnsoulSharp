@@ -15,7 +15,7 @@ namespace PRADA_Vayne.MyLogic.R
         public static void OnCastSpell(Spellbook spellbook, SpellbookCastSpellEventArgs args)
         {
             if (spellbook.Owner.IsMe)
-                if (args.Slot == SpellSlot.R && Program.ComboMenu.Item("QR").GetValue<bool>())
+               // if (args.Slot == SpellSlot.R && Program.ComboMenu.Item("QR").GetValue<bool>())
                 {
                     var target = TargetSelector.GetTarget(300, DamageType.Physical);
                     var tumblePos = target != null ? target.GetTumblePos() : Game.CursorPos;

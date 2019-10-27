@@ -16,7 +16,7 @@ namespace PRADA_Vayne.MyLogic.Others
     {
         public static void OnDraw(EventArgs args)
         {
-            if (Program.DrawingsMenu.Item("drawenemywaypoints").GetValue<bool>())
+           /* if (Program.DrawingsMenu.Item("drawenemywaypoints").GetValue<bool>())
                 foreach (var e in GameObjects.EnemyHeroes.Where(en =>
                     en.IsVisible && !en.IsDead && en.Distance(Heroes.Player) < 2500))
                 {
@@ -29,7 +29,7 @@ namespace PRADA_Vayne.MyLogic.Others
                     var w = Drawing.WorldToScreen(wp[c].ToVector3()); //endpos
 
                     Drawing.DrawLine(ip.X, ip.Y, w.X, w.Y, 2, Color.Red);
-                }
+                }*/
         }
     }
 }

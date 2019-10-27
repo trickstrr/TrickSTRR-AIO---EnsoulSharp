@@ -26,6 +26,11 @@ namespace PRADA_Vayne
         {
             Orbwalker.OnAction += Orbwalker_OnAction;
         }
+
+        private static void Orbwalker_OnAction(object sender, OrbwalkerActionArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
         #region Menu
 
         public static Menu MainMenu;
