@@ -7,6 +7,7 @@ using EnsoulSharp.SDK.Utility;
 using EnsoulSharp.SDK.Utils;
 using SharpDX;
 using System.Linq;
+using static PRADA_Vayne.Program;
 
 namespace PRADA_Vayne.MyLogic.Q
 {
@@ -16,12 +17,12 @@ namespace PRADA_Vayne.MyLogic.Q
 
         public static void Cast(Vector3 position)
         {
-            if (!Program.ComboMenu.Item("QCombo").GetValue<bool>()) return;
+            if (!ComboMenu.Item("QCombo").GetValue<bool>()) return;
             TumbleOrderPos = position;
             if (position != Vector3.Zero) Program.Q.Cast(TumbleOrderPos);
             if (position == Vector3.Zero &&
                 ObjectManager.Player.Buffs.Any(b => b.Name.ToLower().Contains("vayneinquisition")))
-                Program.Q.Cast(Game.CursorPosCenter);
+                Program.Q.Cast(Game.CursorPos);
         }
     }
 }

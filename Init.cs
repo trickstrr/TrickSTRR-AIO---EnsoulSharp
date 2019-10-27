@@ -44,18 +44,34 @@ namespace TrickSTRR.AIO
                     TrickSTRR.AIO.Kalista.Program.Main();
                     Game.Print("Based on Official Kalista");
                     break;
-               /* case "LeeSin":
-                    switch (Misc.menu["DualPAIOPort"][ObjectManager.Player.CharacterName].GetValue<MenuList>().Index)
-                    {
-                    case 0:
-                    LeeSin.Program.Game_OnGameLoad();
+                case "Ezreal":
+                    TrickSTRR.AIO.Ezreal.Program.Main();
+                    Game.Print("Based on Ezrealist - Thanks to ProDragon!");
                     break;
-                        case 1:
-                    Console.WriteLine("Hi Lee");
-                                break;
-                    }
-                  break;*/
-                }
+                case "Kassadin":
+                    TrickSTRR.AIO.Kassadin.Program.Main();
+                    Game.Print("Based on xDreamms Kassadin - Thanks to ProDragon!");
+                    break;
+                case "Sylas":
+                    TrickSTRR.AIO.Sylas.Program.Main();
+                    Game.Print("Based on xDreamms Sylas - Thanks to ProDragon!");
+                    break;
+                case "Varus":
+                    TrickSTRR.AIO.Varus.Program.Main();
+                    Game.Print("Based on xDreamms Varus - Thanks to ProDragon!");
+                    break;
+                    /* case "LeeSin":
+                         switch (Misc.menu["DualPAIOPort"][ObjectManager.Player.CharacterName].GetValue<MenuList>().Index)
+                         {
+                         case 0:
+                         LeeSin.Program.Game_OnGameLoad();
+                         break;
+                             case 1:
+                         Console.WriteLine("Hi Lee");
+                                     break;
+                         }
+                       break;*/
+            }
             }
 
                 private static void Game_OnUpdate(EventArgs args)

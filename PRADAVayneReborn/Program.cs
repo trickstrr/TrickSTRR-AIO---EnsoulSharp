@@ -1,9 +1,11 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
 using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.MenuUI.Values;
 using EnsoulSharp.SDK.Utility;
 using EnsoulSharp.SDK.Utils;
 using PRADA_Vayne.MyInitializer;
+using Menu = EnsoulSharp.SDK.MenuUI.Menu;
 
 namespace PRADA_Vayne
 {
@@ -22,7 +24,7 @@ namespace PRADA_Vayne
         #region Fields and Objects
         public static void Orbwalking()
         {
-            Orbwalker.OnAction += OrbwalkerActionArgs;
+            Orbwalker.OnAction += Orbwalker_OnAction;
         }
         #region Menu
 

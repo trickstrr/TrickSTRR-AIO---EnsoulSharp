@@ -12,7 +12,7 @@ namespace PRADA_Vayne.MyLogic.Q
 {
     public static partial class Events
     {
-        public static void AfterAttack(AttackableUnit sender, AttackableUnit target)
+       /* public static void AfterAttack(AttackableUnit sender, AttackableUnit target)
         {
             if (!Program.Q.IsReady()) return;
             if (sender.IsMe && target.IsValid<AIHeroClient>() &&
@@ -73,6 +73,6 @@ namespace PRADA_Vayne.MyLogic.Q
                         Program.Q.Cast(dashPosition, true);
                 }
             }
-        }
+        }*/
     }
 }

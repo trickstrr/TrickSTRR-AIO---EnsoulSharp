@@ -12,8 +12,10 @@ namespace PRADA_Vayne.MyLogic.Others
 {
     public static partial class Events
     {
+        private static AIHeroClient Player;
         public static void OnUpdate(EventArgs args)
         {
+            
             if (Heroes.Player.HasBuff("rengarralertsound"))
             {
                 if (Items.HasItem((int)ItemId.Oracle_Alteration, Heroes.Player) &&
