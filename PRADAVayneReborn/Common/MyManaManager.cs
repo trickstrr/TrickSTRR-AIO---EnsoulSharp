@@ -1,6 +1,7 @@
 ﻿namespace PRADA_Vayne.MyCommon
 {
     using EnsoulSharp;
+    using EnsoulSharp.SDK;
     #region 
 
     using EnsoulSharp.SDK.MenuUI;
@@ -40,7 +41,7 @@
                 farmMenu["MyManaManager.SpellFarm"].GetValue<MenuBool>().Permashow();
                 farmMenu["MyManaManager.SpellHarass"].GetValue<MenuBool>().Permashow();
 
-                Game.OnWndProc += delegate (WndEventArgs Args)
+                Game.OnWndProc += delegate (GameWndProcEventArgs Args)
                 {
                     if (Args.Msg == 519)
                     {
@@ -56,7 +57,7 @@
                     }
                 };
 
-                Game.OnTick += delegate
+               /* Game.Tick.OnTick += delegate
                 {
                     SpellFarm = farmMenu["MyManaManager.SpellFarmMode"].GetValue<MenuList>().Index == 0 && FarmScrool ||
                                 farmMenu["MyManaManager.SpellFarmMode"].GetValue<MenuList>().Index == 1 &&
@@ -69,7 +70,7 @@
                     farmMenu["MyManaManager.SpellFarm"].GetValue<MenuBool>().Enabled = SpellFarm;
                     farmMenu["MyManaManager.SpellHarass"].GetValue<MenuBool>().Enabled = SpellHarass;
 
-                };
+                };*/
             }
         }
     }

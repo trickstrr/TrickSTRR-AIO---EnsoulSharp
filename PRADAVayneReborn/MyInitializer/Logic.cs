@@ -12,11 +12,11 @@ namespace PRADA_Vayne.MyInitializer
         {
             #region Q
 
-            Orbwalker.OrbwalkerType.AfterAttack += Events.AfterAttack;
-            Orbwalker.OrbwalkerType.BeforeAttack += Events.BeforeAttack;
-            Orbwalker.OrbwalkerType.OnAttack += Events.OnAttack;
+            //OrbwalkerType.AfterAttack += Events.AfterAttack;
+           // OrbwalkerType.BeforeAttack += Events.BeforeAttack;
+           // Orbwalker.OrbwalkerType.OnAttack += Events.OnAttack;
             Spellbook.OnCastSpell += Events.OnCastSpell;
-            Gapcloser.OnGapcloser += Events.OnGapcloser;
+           // Gapcloser.OnGapcloser += Events.OnGapcloser;
             AIBaseClient.OnProcessSpellCast += Events.OnProcessSpellCast;
             Game.OnUpdate += Events.OnUpdate;
 
@@ -27,7 +27,7 @@ namespace PRADA_Vayne.MyInitializer
             GameObject.OnCreate += AntiAssasins.OnCreateGameObject;
             AIBaseClient.OnProcessSpellCast += MyLogic.E.Events.OnProcessSpellCast;
             Game.OnUpdate += MyLogic.E.Events.OnUpdate;
-            Interrupter.OnInterrupterSpell += MyLogic.E.Events.OnPossibleToInterrupt;
+           // Interrupter.OnInterrupterSpell += MyLogic.E.Events.OnPossibleToInterrupt;
             Game.OnUpdate += MyLogic.E.Events.JungleUsage;
 
             #endregion E

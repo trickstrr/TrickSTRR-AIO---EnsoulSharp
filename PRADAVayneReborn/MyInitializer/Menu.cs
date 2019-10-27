@@ -21,13 +21,13 @@ namespace PRADA_Vayne.MyInitializer
         public static void LoadMenu()
         {
             ConstructMenu();
-            InitOrbwalker();
-            FinishMenuInit();
+           // InitOrbwalker();
+           // FinishMenuInit();
         }
 
         public static void ConstructMenu()
         {
-            Program.MainMenu = new Menu("PRADA Vayne", "pradamenu", true);
+          /*  Program.MainMenu = new Menu("PRADA Vayne", "pradamenu", true);
             Program.ComboMenu = new Menu("Combo Settings", "combomenu");
             Program.ComboMenu.Add();
             Program.LaneClearMenu = new Menu("Laneclear Settings", "laneclearmenu");
@@ -36,7 +36,7 @@ namespace PRADA_Vayne.MyInitializer
             Program.DrawingsMenu.Add(new MenuBool("streamingmode", "Disable All Drawings").SetValue(false));
             Program.DrawingsMenu.Add(new MenuBool("drawenemywaypoints", "Draw Enemy Waypoints").SetValue(true));
             Program.OrbwalkerMenu = new Menu("Orbwalker", "orbwalkermenu");
-            Program.ComboMenu.Add(new Menu("QCombo", "Auto Tumble").SetValue(true));
+            Program.ComboMenu.Add(new MenuBool("QCombo", "Auto Tumble").SetValue(true));
             Program.ComboMenu.Add(new MenuBool("QMode", "Q Mode: ").SetValue(new MenuList(new[] { "PRADA", "TO MOUSE" })));
             Program.ComboMenu.Add(new MenuBool("QMinDist", "Min dist from enemies").SetValue(new MenuSlider(375, 325, 525)));
             Program.ComboMenu.Add(new MenuBool("QOrderBy", "Q to position").SetValue(new MenuList(new[] {"CLOSETOMOUSE", "CLOSETOTARGET"})));
@@ -69,17 +69,17 @@ namespace PRADA_Vayne.MyInitializer
 
         public static void InitOrbwalker()
         {
-            Orbwalker.OnAction += Orbwalker_OnAction;
+          //  Orbwalker.OnAction += Orbwalker_OnAction;
 
         }
 
         public static void FinishMenuInit()
         {
-            Program.MainMenu.Attach(Program.ComboMenu);
+           /* Program.MainMenu.Attach(Program.ComboMenu);
             Program.MainMenu.Attach(Program.LaneClearMenu);
             Program.MainMenu.Attach(Program.EscapeMenu);
             Program.MainMenu.Attach(Program.DrawingsMenu);
-            Program.MainMenu.Attach(Program.OrbwalkerMenu);
+            Program.MainMenu.Attach(Program.OrbwalkerMenu);*/
         }
     }
 }

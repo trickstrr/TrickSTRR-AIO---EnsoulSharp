@@ -12,7 +12,7 @@ using System.Linq;
 namespace PRADA_Vayne.MyUtils
 {
     public static class Extensions
-    {
+    {/*
         private static readonly AIHeroClient Player = ObjectManager.Player;
 
         public static bool IsCondemnable(this AIHeroClient hero)
@@ -24,8 +24,8 @@ namespace PRADA_Vayne.MyUtils
             //values for pred calc pP = player position; p = enemy position; pD = push distance
             var pP = Heroes.Player.Position;
             var p = hero.Position;
-            var pD = Program.ComboMenu.Menu("EPushDist").GetValue<Slider>().Value;
-            var mode = Program.ComboMenu.Menu("EMode").GetValue<MenuList>().SelectedValue;
+            var pD = Program.ComboMenu.Item("EPushDist");//.GetValue<Slider>().Value;
+            var mode = Program.ComboMenu.Item("EMode").GetValue<MenuList>().SelectedValue;
 
             if (mode == "PRADASMART" && (p.Extend(pP, -pD).IsCollisionable() ||
                                          p.Extend(pP, -pD / 2f).IsCollisionable() ||
@@ -49,7 +49,7 @@ namespace PRADA_Vayne.MyUtils
                     return false;
                 }
 
-                var hitchance = Program.ComboMenu.Item("EHitchance").GetValue<Slider>().Value;
+                var hitchance = Program.ComboMenu.Item("EHitchance");//.GetValue<Slider>().Value;
                 var angle = 0.20 * hitchance;
                 const float travelDistance = 0.5f;
                 var alpha = new Vector2((float)(p.X + travelDistance * Math.Cos(Math.PI / 180 * angle)),
@@ -71,7 +71,7 @@ namespace PRADA_Vayne.MyUtils
                 if (!hero.CanMove || hero.Spellbook.IsAutoAttack)
                     return true;
 
-                var hitchance = Program.ComboMenu.Item("EHitchance").GetValue<Slider>().Value;
+                var hitchance = Program.ComboMenu.Item("EHitchance");//.GetValue<Slider>().Value;
                 var angle = 0.20 * hitchance;
                 const float travelDistance = 0.5f;
                 var alpha = new Vector2((float)(p.X + travelDistance * Math.Cos(Math.PI / 180 * angle)),
@@ -91,7 +91,7 @@ namespace PRADA_Vayne.MyUtils
                 if (!hero.CanMove || hero.Spellbook.IsAutoAttack)
                     return true;
 
-                var hitchance = Program.ComboMenu.Item("EHitchance").GetValue<Slider>().Value;
+                var hitchance = Program.ComboMenu.Item("EHitchance");//.GetValue<Slider>().Value;
                 var angle = 0.20 * hitchance;
                 const float travelDistance = 0.5f;
                 var alpha = new Vector2((float)(p.X + travelDistance * Math.Cos(Math.PI / 180 * angle)),
@@ -246,9 +246,9 @@ namespace PRADA_Vayne.MyUtils
         {
             return GameObjects.EnemyHeroes.Any(e =>
                        e.IsValidTarget() && e.IsVisible &&
-                       e.Distance(pos) < Program.ComboMenu.Item("QMinDist").GetValue<Slider>().Value) ||
+                     //  e.Distance(pos) < Program.ComboMenu.Item("QMinDist").GetValue<Slider>().Value) ||
                    Traps.EnemyTraps.Any(t => pos.Distance(t.Position) < 125) ||
-                   pos.IsUnderEnemyTurret(true) && !Player.IsUnderEnemyTurret(true) || pos.IsWall();
+                   pos.IsUnderEnemyTurret(true) && !Player.IsUnderEnemyTurret(true) || pos.IsWall());
         }
 
         public static bool IsKillable(this AIHeroClient hero)
@@ -259,7 +259,7 @@ namespace PRADA_Vayne.MyUtils
         public static bool IsCollisionable(this Vector3 pos)
         {
             return NavMesh.GetCollisionFlags(pos).HasFlag(CollisionFlags.Wall) ||
-                   Program.Orbwalker.ActiveMode == Orbwalker.OrbwalkerMode.Combo &&
+                   Orbwalker.ActiveMode == OrbwalkerMode.Combo &&
                    NavMesh.GetCollisionFlags(pos).HasFlag(CollisionFlags.Building);
         }
 
@@ -274,5 +274,5 @@ namespace PRADA_Vayne.MyUtils
             var objListTeam = ObjectManager.Get<AIHeroClient>().Where(x => x.IsValidTarget(range, false));
             return objListTeam.Count(hero => checkteam ? hero.Team != target.Team : hero.Team == target.Team);
         }
-    }
+    */}
 }

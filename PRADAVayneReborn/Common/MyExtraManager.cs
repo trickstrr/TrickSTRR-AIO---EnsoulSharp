@@ -68,7 +68,7 @@
             {
                 if (ObjectManager.Player.CharacterName == "Jayce")
                 {
-                    damage += MyPlugin.Jayce.GetQDamage(target);
+                   // damage += MyPlugin.Jayce.GetQDamage(target);
                 }
                 else
                 {
@@ -80,15 +80,15 @@
             {
                 if (ObjectManager.Player.CharacterName == "Jayce")
                 {
-                    damage += MyPlugin.Jayce.GetWDamage(target);
+                   // damage += MyPlugin.Jayce.GetWDamage(target);
                 }
                 else if (ObjectManager.Player.CharacterName == "Vayne")
                 {
-                    damage += MyPlugin.Vayne.GetWDamage(target);
+                  //  damage += MyPlugin.Vayne.GetWDamage(target);
                 }
                 else if (ObjectManager.Player.CharacterName == "Urgot")
                 {
-                    damage += MyPlugin.Urgot.GetWDamage(target);
+                   // damage += MyPlugin.Urgot.GetWDamage(target);
                 }
                 else
                 {
@@ -102,7 +102,7 @@
 
                 if (ObjectManager.Player.CharacterName == "Jayce")
                 {
-                    damage += MyPlugin.Jayce.GetEDamage(target);
+                   // damage += MyPlugin.Jayce.GetEDamage(target);
                 }
                 else if (ObjectManager.Player.CharacterName == "Kalista")
                 {
@@ -112,19 +112,19 @@
                 }
                 else if (ObjectManager.Player.CharacterName == "Twitch")
                 {
-                    damage += MyPlugin.Twitch.GetEDMGTwitch(target);
+                   // damage += MyPlugin.Twitch.GetEDMGTwitch(target);
                 }
                 else if (ObjectManager.Player.CharacterName == "Xayah")
                 {
                     if (target.Type == GameObjectType.AIMinionClient)
                     {
-                        damage += MyPlugin.Xayah.GetEDamageForMinion(target);
+                      //  damage += MyPlugin.Xayah.GetEDamageForMinion(target);
                     }
                     else
                     {
-                        if (MyPlugin.Xayah.HitECount(target) > 0)
+                      //  if (MyPlugin.Xayah.HitECount(target) > 0)
                         {
-                            damage += MyPlugin.Xayah.GetEDMG(target, MyPlugin.Xayah.HitECount(target));
+                          //  damage += MyPlugin.Xayah.GetEDMG(target, MyPlugin.Xayah.HitECount(target));
                         }
                     }
                 }
@@ -134,7 +134,7 @@
             {
                 if (ObjectManager.Player.CharacterName == "Urgot" && target.Type == GameObjectType.AIHeroClient)
                 {
-                    damage += MyPlugin.Urgot.GetRDamage(target as AIHeroClient, true);
+                   // damage += MyPlugin.Urgot.GetRDamage(target as AIHeroClient, true);
                 }
                 else
                 {
@@ -254,10 +254,10 @@
                    !target.HasBuff("zhonyasringshield") && !target.HasBuff("bardrstasis");
         }
 
-        public static SpellDataInstClient GetBasicSpell(this Spell spell)
-        {
-            return ObjectManager.Player.Spellbook.GetSpell(spell.Slot);
-        }
+        //public static SpellDataInstClient GetBasicSpell(this Spell spell)
+       // {
+           // return ObjectManager.Player.Spellbook.GetSpell(spell.Slot);
+       // }
 
         public static SpellData GetSpellData(this Spell spell)
         {

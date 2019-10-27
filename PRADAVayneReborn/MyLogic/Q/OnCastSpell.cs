@@ -17,7 +17,7 @@ namespace PRADA_Vayne.MyLogic.Q
                 if (args.Slot == SpellSlot.Q)
                     if (Tumble.TumbleOrderPos != Vector3.Zero)
                     {
-                        if (Tumble.TumbleOrderPos.IsDangerousPosition())
+                      /*  if (Tumble.TumbleOrderPos.IsDangerousPosition())
                         {
                             Tumble.TumbleOrderPos = Vector3.Zero;
                             args.Process = false;
@@ -25,7 +25,7 @@ namespace PRADA_Vayne.MyLogic.Q
                         else
                         {
                             Tumble.TumbleOrderPos = Vector3.Zero;
-                        }
+                        }*/
                     }
         }
     }

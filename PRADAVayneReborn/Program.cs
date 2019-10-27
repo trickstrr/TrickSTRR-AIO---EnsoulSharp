@@ -27,18 +27,18 @@ namespace PRADA_Vayne
             Orbwalker.OnAction += Orbwalker_OnAction;
         }
 
-        private static void Orbwalker_OnAction(object sender, OrbwalkerActionArgs args)
+        public static void Orbwalker_OnAction(object sender, OrbwalkerActionArgs args)
         {
             throw new System.NotImplementedException();
         }
         #region Menu
 
-        public static Menu MainMenu;
-        public static Menu ComboMenu;
-        public static Menu LaneClearMenu;
-        public static Menu EscapeMenu;
-        public static Menu DrawingsMenu;
-        public static Menu OrbwalkerMenu;
+        public static Menu MainMenu { get; set; }
+        public static Menu ComboMenu { get; set; }
+        public static Menu LaneClearMenu { get; set; }
+        public static Menu EscapeMenu { get; set; }
+        public static Menu DrawingsMenu { get; set; }
+        public static Menu OrbwalkerMenu { get; set; }
 
         #endregion Menu
 

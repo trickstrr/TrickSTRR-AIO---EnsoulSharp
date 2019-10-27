@@ -34,7 +34,7 @@ namespace PRADA_Vayne.MyLogic.E
 
                // if (Program.ComboMenu.Menu("ECombo").GetValue<bool>())
                     foreach (var enemy in Heroes.EnemyHeroes.Where(e => e.IsValidTarget(550)))
-                        if (enemy != null && enemy.IsCondemnable())
+                       // if (enemy != null && enemy.IsCondemnable())
                             Program.E.Cast(enemy);
                 var kindredUltedDyingTarget = ObjectManager.Get<AIHeroClient>().FirstOrDefault(h =>
                     h.IsValidTarget(550) && h.HasBuff("KindredRNoDeathBuff") &&
