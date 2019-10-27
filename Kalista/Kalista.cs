@@ -116,6 +116,7 @@
                 if (GameObjects.EnemyHeroes.Any(x =>
                     x.IsValidTarget(E.Range) && x.HasBuff("kalistaexpungemarker") && x.Health < GetEDamage(x) && !x.IsInvulnerable))
                 {
+                    Game.Say("Omae Wa Mou Shindeiru", sendToAll:true);
                     E.Cast();
                 }
             }
