@@ -37,9 +37,9 @@ namespace TrickSTRR.AIO
             switch (ObjectManager.Player.CharacterName)
             {
 
-                case "Vayne":
+               /* case "Vayne":
                     PRADA_Vayne.Program.VayneMain();
-                    break;
+                    break;*/
                 case "Kalista":
                     TrickSTRR.AIO.Kalista.Program.Main();
                     Game.Print("Based on Official Kalista");
