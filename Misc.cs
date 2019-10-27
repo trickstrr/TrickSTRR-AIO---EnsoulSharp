@@ -17,17 +17,17 @@ namespace TrickSTRR.AIO.Dual_Port
         public static void Load()
         {
 
-            info = new Menu("TrickSTRR.AIO.Info", "[~] EnsoulAIO - Info", true);
-            info.Add(new MenuSeparator("aioBerb", "TrickSTRR.AIO - By TrickSTRR Based on PortAIO"));
+            info = new Menu("TrickSTRR.AIO.Info", "TrickSTRR - Info", true);
+            info.Add(new MenuSeparator("aioBerb", "TrickSTRR.AIO - By TrickSTRR"));
             info.Add(new MenuSeparator("aioVersion", "Version : " + Game.BuildVersion));
-            info.Add(new MenuSeparator("aioNote", "Note : Make sure you're in Borderless!"));
+            info.Add(new MenuSeparator("aioNote", "Note : Report Bugs to TrickSTRR#1016 at Discord!"));
             info.Attach();
 
-            menu = new Menu("TAIOMisc", "[~] TrickSTRR.AIO - Ports", true);
+           /* menu = new Menu("TAIOMisc", "[~] TrickSTRR.AIO - Ports", true);
             var dualPort = new Menu("DualPAIOPort", "Dual-Port");
             dualPort.Add(new MenuSeparator("note", "When using any option, use f5 to reload after your choice."));
             menu.Add(dualPort);
-            menu.Attach();
+            menu.Attach();*/
 
             var hasDualPort = true;
             var champ = new string[] { };
@@ -49,10 +49,10 @@ namespace TrickSTRR.AIO.Dual_Port
                     break;*/
 
             }
-            if (hasDualPort)
+           /* if (hasDualPort)
             {
                 dualPort.Add(new MenuList(ObjectManager.Player.CharacterName, "Which dual-port?", champ ));
-            }
+            }*/
 
 
             //menu.Add(new MenuBool("UtilityOnly", "Utility Only?",false));

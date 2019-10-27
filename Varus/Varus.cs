@@ -14,12 +14,12 @@ using System.Drawing;
 
 namespace TrickSTRR.AIO.Varus
 {
-    class Program
+    class Varus
     {
         private static AIHeroClient Player { get { return ObjectManager.Player; } }
         public static Spell Q, W, E, R;
         private static Menu Config;
-        public static void Main()
+        public static void VarusMain()
         {
             GameEvent.OnGameLoad += GameEventOnOnGameLoad;
         }
@@ -30,7 +30,8 @@ namespace TrickSTRR.AIO.Varus
             CreateSpells();
             CreateMenu();
             CreateEvents();
-            Game.Print("<font color=\"#008aff\"> xDreamms Varus </font> ver 1.0 by <font color=\"#FF0000\"> xDreamms</font> - <font color=\"#00BFFF\">Loaded</font>");
+            Game.Print("<font color=\"#008aff\"> TrickSTRR Varus </font> ver 1.0 by <font color=\"#FF0000\"> TrickSTRR</font> - <font color=\"#00BFFF\">Loaded</font>");
+            Game.Print("Based on xDreamms Varus - Thanks to ProDragon for Updating it!");
 
         }
         private static void CreateEvents()
@@ -400,7 +401,7 @@ namespace TrickSTRR.AIO.Varus
         }
         private static void CreateMenu()
         {
-            Config = new Menu("Varus", "xDreamms Varus", true);
+            Config = new Menu("Varus", "TrickSTRR Varus", true);
 
             var comboMenu = new Menu("Combo", "Combo");
             Helper.AddMenuBool(comboMenu, "ComboQ", "Use Q");

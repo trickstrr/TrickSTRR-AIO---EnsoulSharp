@@ -26,7 +26,7 @@ namespace TrickSTRR.AIO
                 Console.WriteLine("[TrickSTRR.AIO] Core loading : Module " + moduleNum + " - Champion Script Loaded");
                 moduleNum++;
                 Game.OnUpdate += Game_OnUpdate;
-                Console.WriteLine("TrickSTRR.AIO] Core loading : Module " + moduleNum + " - Champion Load Detected, Disabling EB Orbwalker");
+                Console.WriteLine("TrickSTRR.AIO] Core loading : Module " + moduleNum + " - Champion Load Detected");
                 moduleNum++;
 
               
@@ -41,23 +41,23 @@ namespace TrickSTRR.AIO
                     PRADA_Vayne.Program.VayneMain();
                     break;*/
                 case "Kalista":
-                    TrickSTRR.AIO.Kalista.Program.Main();
+                    TrickSTRR.AIO.Kalista.Kalista.OnLoad();
                     Game.Print("Based on Official Kalista");
                     break;
-                case "Ezreal":
-                    TrickSTRR.AIO.Ezreal.Program.Main();
+               /* case "Ezreal":
+                    TrickSTRR.AIO.Ezreal.Program.OnGameLoad();
                     Game.Print("Based on Ezrealist - Thanks to ProDragon!");
-                    break;
+                    break;*/
                 case "Kassadin":
-                    TrickSTRR.AIO.Kassadin.Program.Main();
+                    TrickSTRR.AIO.Kassadin.Kassadin.Start();
                     Game.Print("Based on xDreamms Kassadin - Thanks to ProDragon!");
                     break;
                 case "Sylas":
-                    TrickSTRR.AIO.Sylas.Program.Main();
+                    TrickSTRR.AIO.Sylas.Sylas.Load();
                     Game.Print("Based on xDreamms Sylas - Thanks to ProDragon!");
                     break;
                 case "Varus":
-                    TrickSTRR.AIO.Varus.Program.Main();
+                    TrickSTRR.AIO.Varus.Varus.VarusMain();
                     Game.Print("Based on xDreamms Varus - Thanks to ProDragon!");
                     break;
                     /* case "LeeSin":

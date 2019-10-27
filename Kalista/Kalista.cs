@@ -22,7 +22,7 @@
 
             Q.SetSkillshot(0.35f, 40, 2400, true, false, SkillshotType.Line);
 
-            MyMenu = new Menu(ObjectManager.Player.CharacterName, "EnsoulSharp.Kalista", true);
+            MyMenu = new Menu(ObjectManager.Player.CharacterName, "TrickSTRR.Kalista", true);
 
             var combat = new Menu("Combo", "Combo Settings")
             {

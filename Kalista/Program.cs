@@ -5,15 +5,12 @@
 
     public class Program
     {
-        public static void Main()
+       /* public static void Main()
         {
             GameEvent.OnGameLoad += delegate
             {
-                if (ObjectManager.Player.CharacterName != "Kalista")
-                    return;
-
                 Kalista.OnLoad();
             };
-        }
+        }*/
     }
 }

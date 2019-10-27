@@ -13,7 +13,7 @@ using Menu = EnsoulSharp.SDK.MenuUI.Menu;
 
 namespace TrickSTRR.AIO.Kassadin
 {
-    class Program
+    class Kassadin
     {
         public static Menu Config { get; set; }
 
@@ -24,7 +24,7 @@ namespace TrickSTRR.AIO.Kassadin
 
         private static Spell Q, W, E, R;
         private static SpellSlot Ignite;
-        public static void Main()
+        public static void Start()
         {
             GameEvent.OnGameLoad += GameEventOnOnGameLoad;
         }
@@ -35,8 +35,8 @@ namespace TrickSTRR.AIO.Kassadin
             CreateSpells();
             CreateMenu();
             CreateEvents();
-            Game.Print("<font color=\"#008aff\"> xDreamms Kassadin </font> ver 1.0 by <font color=\"#FF0000\"> xDreamms</font> - <font color=\"#00BFFF\">Loaded</font>");
-
+            Game.Print("<font color=\"#008aff\"> TrickSTRR Kassadin </font> ver 1.0 by <font color=\"#FF0000\"> TrickSTRR</font> - <font color=\"#00BFFF\">Loaded</font>");
+            Game.Print("Based on xDreamms Kassadin - Thanks to ProDragon for Updating it!");
         }
 
         private static void CreateEvents()
@@ -251,7 +251,7 @@ namespace TrickSTRR.AIO.Kassadin
 
         private static void CreateMenu()
         {
-            Config = new Menu("xDreammsKassadin", "xDreamms Kassadin", true);
+            Config = new Menu("TrickSTRRKassadin", "TrickSTRR Kassadin", true);
 
             //Combo Menu
             var comboMenu = new Menu("Combo", "Combo");

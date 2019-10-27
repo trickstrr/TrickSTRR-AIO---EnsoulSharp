@@ -13,7 +13,7 @@ using SharpDX;
 
 namespace TrickSTRR.AIO.Sylas
 {
-    class Program
+    class Sylas
     {
         private static Spell Q, W, E, E2, R, R2;
 
@@ -22,7 +22,7 @@ namespace TrickSTRR.AIO.Sylas
 
 
         private static AIHeroClient Player = ObjectManager.Player;
-        public static void Main()
+        public static void Load()
         {
             GameEvent.OnGameLoad += GameEventOnOnGameLoad;
         }
@@ -291,7 +291,7 @@ namespace TrickSTRR.AIO.Sylas
 
         private static void CreateMenu()
         {
-            Config = new Menu("xDreammsSylas", "xDreamms Sylas", true);
+            Config = new Menu("TrickSTRRSylas", "TrickSTRR Sylas", true);
 
             //Combo Menu
             var comboMenu = new Menu("Combo", "Combo");
